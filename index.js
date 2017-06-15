@@ -3,7 +3,7 @@ var myApp = angular.module('myApp',[]);
 myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function($scope, CustomerService, $http) {
   
   
-  var viewProfile = this;
+   
   $scope.customer ={
     name:'', 
     Country:'', 
@@ -27,6 +27,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 	
          if   ($scope.customer.AccType == '1') {
 			 
+			            $scope.jsonData = '';
 						$scope.showcurrtable = true;
 						$scope.showsavtable = false;
 					    $scope.showdeptable = false;
@@ -36,7 +37,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 					
 					if   ($scope.customer.AccType == '2') {
 						
-						 
+						 $scope.jsonData = '';
 						$scope.showsavtable = true;
 					  	$scope.showcurrtable = false;
 					    $scope.showdeptable = false;
@@ -47,6 +48,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 					
 					if   ($scope.customer.AccType == '3') {
 						 
+						 $scope.jsonData = '';
 						 $scope.showdeptable = true;
 						$scope.showcurrtable = false;
 						$scope.showsavtable = false;
@@ -55,6 +57,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 						
 						if   ($scope.customer.AccType == '4') {
 						 
+						 $scope.jsonData = '';
 						 $scope.showcardstable = true;
 						 $scope.showdeptable = false;
 						$scope.showcurrtable = false;
@@ -63,6 +66,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 						
 						if   ($scope.customer.AccType == '5') {
 						 
+						 $scope.jsonData = '';
 						 $scope.showcardstable = false;
 						 $scope.showdeptable = false;
 						$scope.showcurrtable = false;
