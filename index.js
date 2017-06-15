@@ -37,7 +37,7 @@ myApp.controller('dropdownCtrl', ['$scope','CustomerService', '$http', function(
 					
 					if   ($scope.customer.AccType == '2') {
 						
-						 $scope.jsonData = '';
+						$scope.jsonData = '';
 						$scope.showsavtable = true;
 					  	$scope.showcurrtable = false;
 					    $scope.showdeptable = false;
