@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html >
+<head>
+<meta charset="UTF-8">
+<title>Mohil</title>
+
+
+<link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css'>
+
+<link rel="stylesheet" href="style.css">
+
+<style>
+table {
+	font-family: arial, sans-serif;
+border-collapse: collapse;
+width: 100%;
+}
+
+td, th {
+	border: 1px solid #dddddd;
+text-align: left;
+padding: 8px;
+}
+
+tr:nth-child(even) {
+	background-color: #dddddd;
+}
+</style>
+
+</head>
+
+<body>
+<div ng-app="myApp"  class="container">
+<h1 >Internet Banking</span></h1>
+<hr />
+
+
+<form class="form-horizontal" ng-controller="dropdownCtrl">
+<h4 class="alert alert-default" ng-bind-template="Hello {{customer.name}} "></h4>
+<hr/>
+
+<div class="form-group">
+<label for="AccType" class="col-sm-2 control-label">Select Account Type </label>
+<div class="col-sm-7">             
+<select ng-model="customer.AccType"                
+ng-options="obj.id as obj.AccType for obj in acctypelist"
+ng-change="getaccTypes()"
+ 
+class="form-control" 
+ng-required="true"
+id="AccType" style="width:40%">
+<option value="">-- Account Type --</option>
+</select>      
+</div>
+</div>
+
+
+<div class="form-group">
+<label for="AccName" class="col-sm-2 control-label">Select Account name </label>
+<div class="col-sm-7">       
+<select ng-model="customer.AccName" 
+
+ng-options="x.Id as x.AccName for x in acctypearray "
+ng-change = "getaccNames()"
+class="form-control"
+ng-required="true"
+id="AccName" style="width:40%">
+<option value="">-- Account name --</option>
+</select>      
+</div>
+</div>
+
+
+<div  class="col-lg-offset-2">
+<button  ng-click="loadPeople()" class="btn btn-success"> Get  {{customer.AccName}}  Details  </button>
+
+
+</div>
+
+<hr />
+
+<h4 class="alert alert-default" ng-bind-template="Account Details of {{customer.name}} "></h4>
+<hr/>
+
+
+<div ng-show="showcurrtable">
+<table >
+
+<tr>
+<th >Name</th>
+<th >Branch</th>
+<th >Currency</th>
+<th >Balance</th>
+<th >Limit</th>
+
+ 
+</tr>
+
+<tr  ng-repeat="r in jsonData ">
+<td  >{{r.name}}</td>
+<td >{{r.branch}}</td>
+<td >{{r.currency}}</td>
+<td >{{r.balance}}</td>  
+<td >{{r.limit}}</td>  
+
+  
+</tr>
+
+</table>
+
+
+</div>
+
+
+<div ng-show="showsavtable">
+<table >
+
+<tr>
+<th >Name</th>
+<th >Branch</th>
+<th >Currency</th>
+<th >Balance</th>
+
+</tr>
+
+<tr  ng-repeat="r in jsonData ">
+<td >{{r.name}}</td>
+<td >{{r.branch}}</td>
+<td >{{r.currency}}</td>
+<td >{{r.balance}}</td>  
+
+</tr>
+
+</table>
+
+
+</div>
+
+<div ng-show="showdeptable">
+<table >
+
+<tr>
+<th >Name</th>
+<th >Branch</th>
+<th >Currency</th>
+<th >Initial</th>
+<th >Interest</th>
+<th >Maturity Date</th>
+<th >Tax Saver</th>
+
+</tr>
+
+<tr ng-repeat="r in jsonData ">
+<td >{{r.name}}</td>
+<td >{{r.branch}}</td>
+<td >{{r.currency}}</td>
+<td >{{r.initial}}</td>  
+<td >{{r.interest}}</td>  
+<td >{{r.maturityDate}}</td> 
+<td >{{r.taxsaver}}</td> 	 
+
+</tr>
+
+</table>
+
+</div>
+
+
+<div ng-show="showcardstable">
+<table >
+
+<tr>
+<th >Name</th>
+<th >Type</th>
+<th >Currency</th>
+<th >Limit</th>
+<th >Consumed Limit</th>
+
+
+</tr>
+
+<tr ng-repeat="r in jsonData ">
+<td >{{r.name}}</td>
+<td >{{r.type}}</td>
+<td >{{r.currency}}</td>
+<td >{{r.limit}}</td>  
+<td >{{r.consumedLimit}}</td>  
+
+
+</tr>
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</form>
+</div>
+<script src='http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.14/angular.min.js'></script>
+
+<script src="index.js"></script>
+
+</body>
+</html>
